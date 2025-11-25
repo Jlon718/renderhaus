@@ -1,0 +1,16 @@
+# Existing requirements
+flask==2.3.3
+pymongo==4.5.0
+python-dotenv==1.0.0
+scikit-learn==1.5.2
+numpy==1.26.4
+Pillow==10.4.0
+pygltflib==1.16.1
+
+# New requirements for 3D thumbnail generation
+trimesh==3.23.5
+pyrender==0.1.45
+requests==2.31.0
+
+# Optional: for better 3D model support
+meshio==5.3.4

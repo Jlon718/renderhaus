@@ -1,0 +1,29 @@
+.design-canvas {
+  flex: 1;
+  background-color: #f5f5f5;
+  border-radius: 0; /* Remove border radius for maximum space */
+  margin: 0; /* NO margins - use every pixel! */
+  position: relative;
+  height: 100vh; /* FULL viewport height! */
+  min-height: 1000px; /* Much higher minimum */
+  overflow: hidden;
+}
+
+.design-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+  display: block; /* Remove any inline spacing */
+}
+
+.canvas-placeholder {
+  text-align: center;
+  color: #666;
+}
+
+.placeholder-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: #999;
+} 

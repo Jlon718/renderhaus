@@ -34,10 +34,9 @@ INSTALLATION STEPS:
 REQUIRED LIBRARIES:
 
 Backend (Node.js) Dependencies:
-- @uploadcare/upload-client: File upload service
 - axios: HTTP requests
 - bcryptjs: Password hashing
-- cloudinary: Image/video management
+- cloudinary: Cloud storage for 3D models and images (replaces Uploadcare)
 - cors: Cross-origin resource sharing
 - crypto-js: Cryptographic functions
 - dotenv: Environment variables
@@ -45,8 +44,8 @@ Backend (Node.js) Dependencies:
 - express-validator: Input validation
 - jsonwebtoken: JWT authentication
 - mongoose: MongoDB object modeling
-- multer: File upload handling
-- nodemailer: Email sending
+- multer: File upload handling (multipart/form-data)
+- nodemailer: Email sending (OTP verification)
 - uuid: Unique identifier generation
 - winston: Logging library
 
@@ -103,11 +102,12 @@ JWT_REFRESH_EXPIRY=7d
 # CORS Configuration
 CORS_ORIGIN=http://localhost:3000
 
-# Uploadcare Configuration
-UPLOADCARE_PUBLIC_KEY=19d2f4a5285847080be0
-UPLOADCARE_SECRET_KEY=20049956d6070e344bdc
+# Cloudinary Configuration (for 3D model uploads)
+CLOUDINARY_CLOUD_NAME=dqo2p0voh
+CLOUDINARY_API_KEY=751995628489729
+CLOUDINARY_API_SECRET=mRr_Jq6jMOhlOHi9hmF1ZxOiSJ0
 
-# Mailtrap Configuration
+# Mailtrap Configuration (for email testing)
 MAILTRAP_USER=ad370c1730db1c
 MAILTRAP_PASS=33145d3248c642
 
@@ -117,6 +117,49 @@ EMAIL_FROM_NAME=NaviBuild
 
 ----------------------------------------------
 
+SYSTEM FEATURES:
+
+1. USER FEATURES:
+   - User registration with email verification (OTP)
+   - JWT-based authentication (access & refresh tokens)
+   - Browse 3D furniture models by category
+   - Drag and drop furniture into 3D canvas
+   - Edit object properties:
+     * Position (X, Y, Z axes with sliders)
+     * Scale/Size (0.1x to 3x)
+     * Rotation (0° to 360°)
+     * Color (manual picker + AI recommendations)
+   - AI Color Suggestions (object-specific, context-aware)
+   - AI Furniture Suggestions (room-level recommendations)
+   - Save and load multiple design projects
+   - Export designs to PDF with AI suggestions
+   - Room templates and pre-designed layouts
+
+2. ADMIN FEATURES:
+   - Admin dashboard with analytics
+   - Upload new 3D models (Cloudinary storage)
+   - Manage existing models (edit/delete)
+   - User management
+   - Project management
+   - Model categories: furniture-seating, furniture-tables, furniture-storage, 
+     furniture-beds, lighting, decoration, kitchen
+
+3. AI CAPABILITIES:
+   - Object-specific color recommendations (8 furniture types × 3 styles = 24 schemes)
+   - Style detection (modern, traditional, rustic)
+   - Missing furniture identification
+   - Database-driven model recommendations
+   - Room color palette suggestions
+
+4. TECHNICAL HIGHLIGHTS:
+   - 3D rendering with Three.js and WebGL
+   - GLTF/GLB model format support (up to 10MB on Cloudinary free tier)
+   - Real-time 3D transformations
+   - Cloudinary CDN for fast model loading
+   - MongoDB Atlas cloud database
+   - Microservices architecture (Node.js + Python backends)
+
+----------------------------------------------
 .env for frontend: ---------------------------
 
 GENERATE_SOURCEMAP=false

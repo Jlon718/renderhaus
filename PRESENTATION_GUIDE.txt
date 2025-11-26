@@ -64,7 +64,7 @@ ARCHITECTURE TYPE: Three-Tier Architecture
 === FRONTEND (React Application) ===
 
 CORE FRAMEWORK:
-- React 18.x - JavaScript library for building user interfaces
+- React 19.1 - JavaScript library for building user interfaces
 - React Router DOM - Client-side routing and navigation
 
 3D RENDERING LIBRARIES:
